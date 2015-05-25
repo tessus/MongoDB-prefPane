@@ -1,3 +1,0 @@
-[submodule "Lib/DaemonController"]
-	path = Lib/DaemonController
-	url = git@github.com:ivanvc/DaemonController.git
