@@ -13,15 +13,15 @@
 @class SUUpdater;
 
 @interface mongoPref : NSPreferencePane {
-  MBSliderButton *theSlider;
-  NSTextField *launchPathTextField;
+  MBSliderButton *__weak theSlider;
+  NSTextField *__weak launchPathTextField;
 @private
   FFYDaemonController *daemonController;
   SUUpdater *updater;
 }
 
-@property (nonatomic, assign) IBOutlet MBSliderButton	*theSlider;
-@property (nonatomic, assign) IBOutlet NSTextField *launchPathTextField;
+@property (nonatomic, weak) IBOutlet MBSliderButton	*theSlider;
+@property (nonatomic, weak) IBOutlet NSTextField *launchPathTextField;
 
 - (IBAction)startStopDaemon:(id)sender;
 - (IBAction)locateBinary:(id)sender;

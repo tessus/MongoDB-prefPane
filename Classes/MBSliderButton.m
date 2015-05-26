@@ -31,7 +31,7 @@
 @implementation MBKnobAnimation
 -(id)initWithStart:(int)begin end:(int)end
 {
-  [super init];
+  if (!(self = [super init])) return nil;
   start = begin;
   range = end - begin;
   return self;
@@ -109,7 +109,6 @@
   
   [a setAnimationBlockingMode:NSAnimationBlocking];
   [a startAnimation];
-  [a release];
 }
 
 -(void)setPosition:(NSNumber*)x

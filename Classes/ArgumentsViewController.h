@@ -15,7 +15,7 @@
   NSMutableArray *parameters;
 }
 
-@property (nonatomic, retain) IBOutlet NSTableView *tableView;
+@property (nonatomic, strong) IBOutlet NSTableView *tableView;
 
 - (IBAction)addRow:(id)sender;
 

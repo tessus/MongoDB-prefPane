@@ -36,11 +36,11 @@ typedef void (^DaemonFailedToStop)(NSString *);
   CFFileDescriptorRef fdref;
 }
 
-@property (nonatomic, retain) NSArray *startArguments;
-@property (nonatomic, retain) NSArray *stopArguments;
-@property (nonatomic, retain) NSString *launchPath;
+@property (nonatomic, strong) NSArray *startArguments;
+@property (nonatomic, strong) NSArray *stopArguments;
+@property (nonatomic, strong) NSString *launchPath;
 
-@property (readonly, getter = pid) NSNumber *pid;
+@property (weak, readonly, getter = pid) NSNumber *pid;
 @property (readonly, getter = running) BOOL isRunning;
 
 @property (readwrite, copy) DaemonStarted daemonStartedCallback;

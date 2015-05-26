@@ -41,29 +41,15 @@ static Preferences *sharedPreferences = nil;
 	return self;
 }
 
-- (id)retain {
-	return self;
-}
-
-- (NSUInteger)retainCount {
-	return NSUIntegerMax;
-}
-
-- (oneway void)release {}
-
-- (id)autorelease {
-	return self;
-}
-
 #pragma mark - Read/Write User defaults
 
 - (id)objectForUserDefaultsKey:(NSString *)key {	
 	CFPropertyListRef obj = CFPreferencesCopyAppValue((CFStringRef)key, (CFStringRef)[bundle bundleIdentifier]);
-	return [(id)CFMakeCollectable(obj) autorelease];
+	return (__bridge id)obj;
 }
 
 - (void)setObject:(id)value forUserDefaultsKey:(NSString *)key {
-  CFPreferencesSetValue((CFStringRef)key, value, (CFStringRef)[bundle bundleIdentifier], kCFPreferencesCurrentUser,  kCFPreferencesAnyHost);
+  CFPreferencesSetValue((CFStringRef)key, (__bridge CFPropertyListRef)(value), (CFStringRef)[bundle bundleIdentifier], kCFPreferencesCurrentUser,  kCFPreferencesAnyHost);
   CFPreferencesSynchronize((CFStringRef)[bundle bundleIdentifier], kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
 }
 
@@ -89,8 +75,7 @@ static Preferences *sharedPreferences = nil;
 
 - (void)setBundle:(NSBundle *)aBundle {
   if (bundle != aBundle) {
-    [bundle release];
-    bundle = [aBundle retain];
+    bundle = aBundle;
 
     if (bundle) {
       if (![self objectForUserDefaultsKey:@"arguments"])
@@ -102,7 +87,7 @@ static Preferences *sharedPreferences = nil;
         NSString *location = @"";
 
         if([fileManager fileExistsAtPath:@"/usr/local/bin/mongod"])
-          location = @"/usr/local/bin/mongod";
+          location = @"/usr/local/bin/mongod";\
         else if ([fileManager fileExistsAtPath:@"/usr/bin/mongod"])
           location = @"/usr/bin/mongod";
         else if ([fileManager fileExistsAtPath:@"/bin/mongod"])
@@ -120,10 +105,5 @@ static Preferences *sharedPreferences = nil;
 
 #pragma mark - Memory management
 
-- (void)dealloc {
-  [bundle release];
-
-  [super dealloc];
-}
 
 @end

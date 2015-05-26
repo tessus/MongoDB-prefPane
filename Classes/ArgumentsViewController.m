@@ -10,8 +10,8 @@
 #import "Preferences.h"
 
 @interface ArgumentsViewController(/* Hidden Methods*/)
-@property (nonatomic, retain) NSMutableArray *arguments;
-@property (nonatomic, retain) NSMutableArray *parameters;
+@property (nonatomic, strong) NSMutableArray *arguments;
+@property (nonatomic, strong) NSMutableArray *parameters;
 - (void)removeArgument:(id)sender;
 - (void)updatePreferences;
 @end
@@ -80,7 +80,7 @@
     [buttonCell setTitle:@"-"];
     [buttonCell setTarget:self];
     [buttonCell setAction:@selector(removeArgument:)];
-    return [buttonCell autorelease];
+    return buttonCell;
   }
   return cell;
 }
@@ -106,12 +106,5 @@
 
 #pragma mark - Memory Managment
 
-- (void)dealloc {
-  [tableView release];
-  [parameters release];
-  [arguments release];
-
-  [super dealloc];
-}
 
 @end

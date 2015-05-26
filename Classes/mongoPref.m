@@ -15,8 +15,8 @@
 @interface mongoPref(/* Hidden Methods */)
 - (void)binaryLocationChanged:(NSNotification *)notification;
 
-@property (nonatomic, retain) SUUpdater *updater;
-@property (nonatomic, retain) FFYDaemonController *daemonController;
+@property (nonatomic, strong) SUUpdater *updater;
+@property (nonatomic, strong) FFYDaemonController *daemonController;
 @end
 
 @implementation mongoPref
@@ -39,7 +39,6 @@
 
   FFYDaemonController *dC = [[FFYDaemonController alloc] init];
   self.daemonController = dC;
-  [dC release];
 
   NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
   [arguments insertObject:@"run" atIndex:0];
@@ -72,10 +71,7 @@
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 
-  [updater release];
-  [daemonController release];
 
-  [super dealloc];
 }
 
 - (IBAction)startStopDaemon:(id)sender {

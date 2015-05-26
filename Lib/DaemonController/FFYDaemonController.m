@@ -68,10 +68,10 @@
 // The daemon task holds the active task, in case that the daemon was initialized by us.
 //
 @interface FFYDaemonController(/* Hidden Methods */)
-@property (nonatomic, retain) NSString *binaryName;
-@property (nonatomic, retain) NSTimer  *pollTimer;
-@property (nonatomic, retain) NSTask   *daemonTask;
-@property (nonatomic, retain) NSTimer  *checkStartupStatusTimer;
+@property (nonatomic, strong) NSString *binaryName;
+@property (nonatomic, strong) NSTimer  *pollTimer;
+@property (nonatomic, strong) NSTask   *daemonTask;
+@property (nonatomic, strong) NSTimer  *checkStartupStatusTimer;
 
 - (void)startPoll;
 - (void)daemonTerminatedFromQueue;
@@ -118,7 +118,7 @@ static pid_t daemon_pid(const char *binary) {
 // Calls daemonTerminatedFromQueue whenever it happens, as a CFFileDescriptor
 // provides just one callback, the call invalidates the current one.
 static void kqueue_termination_callback(CFFileDescriptorRef f, CFOptionFlags callBackTypes, void *self) {
-  [(id)self performSelector:@selector(daemonTerminatedFromQueue)];
+  [(__bridge id)self performSelector:@selector(daemonTerminatedFromQueue)];
 }
 
 // Returns a CFFileDescriptor that is the reference for the callback whenever the status of
@@ -126,7 +126,7 @@ static void kqueue_termination_callback(CFFileDescriptorRef f, CFOptionFlags cal
 static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
   int                     kq;
   struct kevent           changes;
-  CFFileDescriptorContext context = {0, self, NULL, NULL, NULL};
+  CFFileDescriptorContext context = {0, (__bridge void *)(self), NULL, NULL, NULL};
   CFRunLoopSourceRef      rls;
 
   // Create the kqueue and set it up to watch for SIGCHLD. Use the
@@ -300,7 +300,6 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
   NSTask *task = [[NSTask alloc] init];
   // Assigsns the daemonTask property.
   self.daemonTask = task;
-  [task release];
 }
 
 // Called when the daemon was terminated from the kernel event watcher.
@@ -377,7 +376,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 // Stops the daemon, and return if it was stopped or not.
 - (BOOL)didStopWithArguments {
   // Launch a new task, passing the stop arguments.
-  NSTask *task = [[[NSTask alloc] init] autorelease];
+  NSTask *task = [[NSTask alloc] init];
   task.launchPath = launchPath;
   task.arguments = stopArguments;
 
@@ -412,8 +411,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
       CFFileDescriptorDisableCallBacks(fdref, kCFFileDescriptorReadCallBack);
 
     // Replace the launchPath.
-    [launchPath release];
-    launchPath = [theLaunchPath retain];
+    launchPath = theLaunchPath;
     // And set the binary name to the last path component.
     self.binaryName = [launchPath lastPathComponent];
 
@@ -433,25 +431,12 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 
   // Release the public properties.
-  [startArguments release];
-  [stopArguments release];
-  [launchPath release];
 
   // Release the hidden properties.
-  [binaryName release];
-  [pollTimer release];
-  [daemonTask release];
 
   // Release all the callbacks.
-  [daemonStartedCallback release];
-  [daemonStoppedCallback release];
-  [daemonIsStartingCallback release];
-  [daemonFailedToStartCallback release];
-  [daemonIsStoppingCallback release];
-  [daemonFailedToStopCallback release];
 
   // Call to super.
-  [super dealloc];
 }
 
 @end

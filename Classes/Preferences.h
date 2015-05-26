@@ -10,7 +10,7 @@
   NSBundle *bundle;
 }
 
-@property (nonatomic, retain) NSBundle *bundle;
+@property (nonatomic, strong) NSBundle *bundle;
 
 + (Preferences *)sharedPreferences;
 
