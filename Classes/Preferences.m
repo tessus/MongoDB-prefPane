@@ -87,7 +87,7 @@ static Preferences *sharedPreferences = nil;
         NSString *location = @"";
 
         if([fileManager fileExistsAtPath:@"/usr/local/bin/mongod"])
-          location = @"/usr/local/bin/mongod";\
+          location = @"/usr/local/bin/mongod";
         else if ([fileManager fileExistsAtPath:@"/usr/bin/mongod"])
           location = @"/usr/bin/mongod";
         else if ([fileManager fileExistsAtPath:@"/bin/mongod"])
