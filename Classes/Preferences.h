@@ -7,7 +7,7 @@
 //
 
 @interface Preferences : NSObject {
-  NSBundle *bundle;
+	NSBundle *bundle;
 }
 
 @property (nonatomic, strong) NSBundle *bundle;

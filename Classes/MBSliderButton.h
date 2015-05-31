@@ -21,12 +21,12 @@
 
 
 @interface MBSliderButton : NSControl<NSAnimationDelegate>
-{   
-  NSPoint location;
-  IBOutlet NSPreferencePane* prefpane;
-  NSImage* knob;
-  NSImage* surround;   
-  bool state;
+{
+	NSPoint location;
+	IBOutlet NSPreferencePane* prefpane;
+	NSImage* knob;
+	NSImage* surround;
+	bool state;
 }
 
 -(IBAction)moveLeft:(id)sender;

@@ -9,10 +9,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ArgumentsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
-  NSTableView *tableView;
+	NSTableView *tableView;
 @private
-  NSMutableArray *arguments;
-  NSMutableArray *parameters;
+	NSMutableArray *arguments;
+	NSMutableArray *parameters;
 }
 
 @property (nonatomic, strong) IBOutlet NSTableView *tableView;

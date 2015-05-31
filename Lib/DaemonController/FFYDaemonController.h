@@ -16,24 +16,24 @@ typedef void (^DaemonFailedToStart)(NSString *);
 typedef void (^DaemonFailedToStop)(NSString *);
 
 @interface FFYDaemonController : NSObject {
-  NSArray  *startArguments;
-  NSArray  *stopArguments;
-  NSString *launchPath;
-
-  DaemonStarted daemonStartedCallback;
-  DaemonStopped daemonStoppedCallback;
-  DaemonIsStarting daemonIsStartingCallback;
-  DaemonIsStopping daemonIsStoppingCallback;
-  DaemonFailedToStart daemonFailedToStartCallback;
-  DaemonFailedToStop daemonFailedToStopCallback;
-
+	NSArray  *startArguments;
+	NSArray  *stopArguments;
+	NSString *launchPath;
+	
+	DaemonStarted daemonStartedCallback;
+	DaemonStopped daemonStoppedCallback;
+	DaemonIsStarting daemonIsStartingCallback;
+	DaemonIsStopping daemonIsStoppingCallback;
+	DaemonFailedToStart daemonFailedToStartCallback;
+	DaemonFailedToStop daemonFailedToStopCallback;
+	
 @private
-  NSString *binaryName;
-  NSTask	 *daemonTask;
-  NSTimer  *pollTimer;
-  NSTimer  *checkStartupStatusTimer;
-  pid_t	    pid;
-  CFFileDescriptorRef fdref;
+	NSString *binaryName;
+	NSTask	 *daemonTask;
+	NSTimer  *pollTimer;
+	NSTimer  *checkStartupStatusTimer;
+	pid_t	    pid;
+	CFFileDescriptorRef fdref;
 }
 
 @property (nonatomic, strong) NSArray *startArguments;
