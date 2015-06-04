@@ -1,9 +1,11 @@
 //
 //  <!-- FFYDaemonController -->
-//  Based in *DaemonController* by
+//  Based on *DaemonController* by
 //  [Max Howell](https://github.com/mxcl/playdar.prefpane/blob/master/DaemonController.h).
+//  Created by Ivan Valdes on 4/14/2010.
 //
-
+//  Copyright 2015 Helmut K. C. Tessarek
+//
 // **DaemonController** is a tool to monitor daemons using Objective C, that are
 // running in the system. The idea is to keep it simple, and provide methods to
 // start, and stop a given daemon. It also watches for the PID, in order to give

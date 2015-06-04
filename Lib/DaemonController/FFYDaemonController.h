@@ -2,8 +2,10 @@
 //  FFYDaemonController.h
 //  mongodb.prefpane
 //
-//  Based in DaemonController by Max Howell. Released under GNU GPL v3.
+//  Based on DaemonController by Max Howell. Released under GNU GPL v3.
 //  Created by Ivan Valdes on 4/14/2010.
+//
+//  Copyright 2015 Helmut K. C. Tessarek
 //
 
 #import <Cocoa/Cocoa.h>

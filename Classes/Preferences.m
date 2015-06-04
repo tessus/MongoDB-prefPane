@@ -5,6 +5,8 @@
 //  Created by Ivan on 5/23/11.
 //  Copyright 2011 Iván Valdés Castillo. All rights reserved.
 //
+//  Copyright 2015 Helmut K. C. Tessarek
+//
 
 #import "Preferences.h"
 
