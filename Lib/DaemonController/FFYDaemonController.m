@@ -386,7 +386,6 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 	return task.terminationStatus == 0;
 }
 
-// ## Custom Setters and Getters
 #pragma mark - Custom Setters and Getters
 
 // When setting the launchPath, means that the deamon to watch has changed. So this custom
@@ -421,7 +420,6 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 	}
 }
 
-// ## Memory Management
 #pragma mark - Memory Management
 
 // When the instance is dealloc'ed, it is needed to release the retained properties.
@@ -429,14 +427,6 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 	// First, if the instance is observing for the task termination, then remove the instance
 	// from the notification center.
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	// Release the public properties.
-	
-	// Release the hidden properties.
-	
-	// Release all the callbacks.
-	
-	// Call to super.
 }
 
 @end

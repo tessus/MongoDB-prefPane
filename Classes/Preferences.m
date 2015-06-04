@@ -73,16 +73,20 @@ static Preferences *sharedPreferences = nil;
 
 #pragma mark - Custom Setters and Getters
 
-- (void)setBundle:(NSBundle *)aBundle {
-	if (bundle != aBundle) {
+- (void)setBundle:(NSBundle *)aBundle
+{
+	if (bundle != aBundle)
+	{
 		bundle = aBundle;
-		
-		if (bundle) {
+
+		if (bundle)
+		{
 			if (![self objectForUserDefaultsKey:@"arguments"])
 				[self setObject:[NSArray array] forUserDefaultsKey:@"arguments"];
 			if (![self objectForUserDefaultsKey:@"parameters"])
 				[self setObject:[NSArray array] forUserDefaultsKey:@"parameters"];
-			if (![self objectForUserDefaultsKey:@"launchPath"]) {
+			if (![self objectForUserDefaultsKey:@"launchPath"] || [[self objectForUserDefaultsKey:@"launchPath"] isEqualToString:@""])
+			{
 				NSFileManager *fileManager = [NSFileManager defaultManager];
 				NSString *location = @"";
 				
@@ -96,14 +100,13 @@ static Preferences *sharedPreferences = nil;
 					location = @"/sbin/mongod";
 				else if ([fileManager fileExistsAtPath:@"/opt/bin/mongod"])
 					location = @"/opt/bin/mongod";
+				else if ([fileManager fileExistsAtPath:@"/opt/local/bin/mongod"])
+					location = @"/opt/local/bin/mongod";
 				
 				[self setObject:location forUserDefaultsKey:@"launchPath"];
 			}
 		}
 	}
 }
-
-#pragma mark - Memory management
-
 
 @end

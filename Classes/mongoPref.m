@@ -65,8 +65,6 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	
 }
 
 - (IBAction)startStopDaemon:(id)sender {

@@ -104,7 +104,4 @@
 	[self.tableView reloadData];
 }
 
-#pragma mark - Memory Managment
-
-
 @end
