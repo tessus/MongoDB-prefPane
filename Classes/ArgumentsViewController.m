@@ -96,10 +96,10 @@
 }
 
 - (IBAction)addRow:(id)sender {
-	[self.arguments addObject:[NSString stringWithFormat:@"-argument%d",
-							   [self.arguments count]]];
-	[self.parameters addObject:[NSString stringWithFormat:@"parameter%d",
-								[self.parameters count]]];
+	[self.arguments addObject:[NSString stringWithFormat:@"--option%lu",
+							   (unsigned long)[self.arguments count]]];
+	[self.parameters addObject:[NSString stringWithFormat:@"value%lu",
+								(unsigned long)[self.parameters count]]];
 	
 	[self.tableView reloadData];
 }
