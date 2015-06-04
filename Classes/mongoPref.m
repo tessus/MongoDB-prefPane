@@ -10,18 +10,15 @@
 #import "MBSliderButton.h"
 #import "FFYDaemonController.h"
 #import "Preferences.h"
-#import "Sparkle/Sparkle.h"
 
 @interface mongoPref(/* Hidden Methods */)
 - (void)binaryLocationChanged:(NSNotification *)notification;
 
-@property (nonatomic, strong) SUUpdater *updater;
 @property (nonatomic, strong) FFYDaemonController *daemonController;
 @end
 
 @implementation mongoPref
 @synthesize theSlider;
-@synthesize updater;
 @synthesize daemonController;
 @synthesize launchPathTextField;
 
@@ -34,9 +31,6 @@
 }
 
 - (void)mainViewDidLoad {
-	self.updater = [SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]];
-	[updater resetUpdateCycle];
-	
 	FFYDaemonController *dC = [[FFYDaemonController alloc] init];
 	self.daemonController = dC;
 	

@@ -10,14 +10,12 @@
 
 @class FFYDaemonController;
 @class MBSliderButton;
-@class SUUpdater;
 
 @interface mongoPref : NSPreferencePane {
 	MBSliderButton *__weak theSlider;
 	NSTextField *__weak launchPathTextField;
 @private
 	FFYDaemonController *daemonController;
-	SUUpdater *updater;
 }
 
 @property (nonatomic, weak) IBOutlet MBSliderButton	*theSlider;

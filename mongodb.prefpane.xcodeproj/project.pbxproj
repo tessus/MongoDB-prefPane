@@ -31,9 +31,6 @@
 		2C62ECBF1173CEA800F27B65 /* mongoPref.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ECBE1173CEA800F27B65 /* mongoPref.tiff */; };
 		2C62ECCD1173CFA500F27B65 /* switcher-text-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ECC61173CFA500F27B65 /* switcher-text-off.png */; };
 		2C62ECCF1173CFA500F27B65 /* switcher-text-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ECC81173CFA500F27B65 /* switcher-text-on.png */; };
-		2C79991813861CEA000F1A2E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C79991713861CEA000F1A2E /* Sparkle.framework */; };
-		2C79991913861CF7000F1A2E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C79991713861CEA000F1A2E /* Sparkle.framework */; };
-		2C79991B138622A5000F1A2E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2C79991A138622A5000F1A2E /* dsa_pub.pem */; };
 		2CD23D0B11BC6AA2005B6619 /* MBSliderButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD23D0911BC6AA2005B6619 /* MBSliderButton.h */; };
 		2CD23D0C11BC6AA2005B6619 /* MBSliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD23D0A11BC6AA2005B6619 /* MBSliderButton.m */; };
 		2CD23D4111BC7082005B6619 /* button_surround.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD23D3F11BC7082005B6619 /* button_surround.png */; };
@@ -66,7 +63,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2C79991913861CF7000F1A2E /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +82,6 @@
 		2C62ECBE1173CEA800F27B65 /* mongoPref.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mongoPref.tiff; sourceTree = "<group>"; };
 		2C62ECC61173CFA500F27B65 /* switcher-text-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switcher-text-off.png"; sourceTree = "<group>"; };
 		2C62ECC81173CFA500F27B65 /* switcher-text-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switcher-text-on.png"; sourceTree = "<group>"; };
-		2C79991713861CEA000F1A2E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Lib/Sparkle.framework; sourceTree = "<group>"; };
-		2C79991A138622A5000F1A2E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		2CD23D0911BC6AA2005B6619 /* MBSliderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSliderButton.h; sourceTree = "<group>"; };
 		2CD23D0A11BC6AA2005B6619 /* MBSliderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSliderButton.m; sourceTree = "<group>"; };
 		2CD23D3F11BC7082005B6619 /* button_surround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_surround.png; sourceTree = "<group>"; };
@@ -110,7 +104,6 @@
 			files = (
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
-				2C79991813861CEA000F1A2E /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +135,6 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C79991A138622A5000F1A2E /* dsa_pub.pem */,
 				2CD23D3F11BC7082005B6619 /* button_surround.png */,
 				2CD23D4011BC7082005B6619 /* button_knob.png */,
 				2C62ECC61173CFA500F27B65 /* switcher-text-off.png */,
@@ -175,7 +167,6 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2C79991713861CEA000F1A2E /* Sparkle.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				F506C035013D953901CA16C8 /* PreferencePanes.framework */,
 			);
@@ -304,7 +295,6 @@
 				2C62ECCF1173CFA500F27B65 /* switcher-text-on.png in Resources */,
 				2CD23D4111BC7082005B6619 /* button_surround.png in Resources */,
 				2CD23D4211BC7082005B6619 /* button_knob.png in Resources */,
-				2C79991B138622A5000F1A2E /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
