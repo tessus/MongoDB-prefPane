@@ -92,7 +92,7 @@
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
 	[openPanel setCanChooseFiles:YES];
 	[openPanel setShowsHiddenFiles:YES];
-	[openPanel setResolvesAliases:YES];
+	[openPanel setResolvesAliases:NO];
 	
 	if (![[launchPathTextField stringValue] isEqualToString:@""])
 		[openPanel setDirectoryURL:[NSURL fileURLWithPath:[[launchPathTextField stringValue] stringByDeletingLastPathComponent]]];
