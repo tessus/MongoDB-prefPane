@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>mongo.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.ivanvc.${PRODUCT_NAME:identifier}</string>
+	<string>cx.evermeet.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.1</string>
+	<string>0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.1</string>
+	<string>0.2</string>
 	<key>NSMainNibFile</key>
 	<string>mongoPref</string>
 	<key>NSPrefPaneIconFile</key>
