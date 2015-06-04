@@ -46,20 +46,22 @@
 	daemonController.launchPath     = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 	daemonController.startArguments = arguments;
 	
+	__weak typeof(theSlider) weakSlider = theSlider;
+	
 	daemonController.daemonStartedCallback = ^(NSNumber *pid) {
-		[theSlider setState:NSOnState animate:YES];
+		[weakSlider setState:NSOnState animate:YES];
 	};
 	
 	daemonController.daemonFailedToStartCallback = ^(NSString *reason) {
-		[theSlider setState:NSOffState animate:YES];
+		[weakSlider setState:NSOffState animate:YES];
 	};
 	
 	daemonController.daemonStoppedCallback = ^(void) {
-		[theSlider setState:NSOffState animate:YES];
+		[weakSlider setState:NSOffState animate:YES];
 	};
 	
 	daemonController.daemonFailedToStopCallback = ^(NSString *reason) {
-		[theSlider setState:NSOnState animate:YES];
+		[weakSlider setState:NSOnState animate:YES];
 	};
 	
 	[theSlider setState:daemonController.isRunning ? NSOnState : NSOffState];
