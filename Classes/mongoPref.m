@@ -41,7 +41,6 @@
 	self.daemonController = dC;
 	
 	NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
-	[arguments insertObject:@"run" atIndex:0];
 	
 	daemonController.launchPath     = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 	daemonController.startArguments = arguments;
