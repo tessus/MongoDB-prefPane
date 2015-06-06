@@ -50,15 +50,15 @@
 	daemonController.daemonFailedToStartCallback = ^(NSString *reason) {
 		[weakSlider setState:NSOffState animate:YES];
 	};
-	
+
 	daemonController.daemonStoppedCallback = ^(void) {
 		[weakSlider setState:NSOffState animate:YES];
 	};
-	
+
 	daemonController.daemonFailedToStopCallback = ^(NSString *reason) {
 		[weakSlider setState:NSOnState animate:YES];
 	};
-	
+
 	[theSlider setState:daemonController.isRunning ? NSOnState : NSOffState];
 	[launchPathTextField setStringValue:daemonController.launchPath];
 	
@@ -74,12 +74,32 @@
 	
 	daemonController.launchPath     = [[[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
 	daemonController.startArguments = arguments;
-	
+
 	if (theSlider.state == NSOffState)
 		[daemonController stop];
 	else
 		[daemonController start];
 }
+
+- (IBAction)clickOnOff:(id)sender {
+	NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
+
+	daemonController.launchPath     = [[[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
+	daemonController.startArguments = arguments;
+
+	int tag = (int)[sender tag];
+
+	if (tag == 0 && daemonController.isRunning)
+	{
+		[daemonController stop];
+		[theSlider setState:NSOffState animate:YES];
+	}
+	if (tag == 1 && !daemonController.isRunning)
+	{
+		[daemonController start];
+	}
+}
+
 
 - (IBAction)locateBinary:(id)sender {
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
