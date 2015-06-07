@@ -23,7 +23,6 @@
 
 /* Begin PBXBuildFile section */
 		0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */; };
-		0EB5C3631B24E88700FB9A19 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5C3621B24E88700FB9A19 /* README.md */; };
 		2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */; };
 		2C0B7F2813AC54980048CE8D /* FFYDaemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */; };
 		2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3D51D5138B53E20060BA1E /* Preferences.h */; };
@@ -265,7 +264,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				ORGANIZATIONNAME = "Iván Valdés Castillo";
+				ORGANIZATIONNAME = "Helmut K. C. Tessarek";
 			};
 			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "MongoDB.prefPane" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -334,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EB5C3631B24E88700FB9A19 /* README.md in Sources */,
 				8D202CF10486D31800D8A456 /* mongoPref.m in Sources */,
 				2CD23D0C11BC6AA2005B6619 /* MBSliderButton.m in Sources */,
 				2CD9EB3F1384C231001BE97E /* ArgumentsViewController.m in Sources */,
