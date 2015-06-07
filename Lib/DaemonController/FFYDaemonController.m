@@ -4,7 +4,7 @@
 //  [Max Howell](https://github.com/mxcl/playdar.prefpane/blob/master/DaemonController.h).
 //  Created by Ivan Valdes on 4/14/2010.
 //
-//  Copyright 2015 Helmut K. C. Tessarek
+//  Copyright (c) Helmut K. C. Tessarek, 2015
 //
 // **DaemonController** is a tool to monitor daemons using Objective C, that are
 // running in the system. The idea is to keep it simple, and provide methods to

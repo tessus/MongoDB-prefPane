@@ -5,7 +5,7 @@
 //  Based on DaemonController by Max Howell. Released under GNU GPL v3.
 //  Created by Ivan Valdes on 4/14/2010.
 //
-//  Copyright 2015 Helmut K. C. Tessarek
+//  Copyright (c) Helmut K. C. Tessarek, 2015
 //
 
 #import <Cocoa/Cocoa.h>

@@ -2,10 +2,10 @@
 //  mongoPref.m
 //  mongodb.prefpane
 //
-//  Created by Iván Valdés Castillo on 4/12/10.
-//  Copyright (c) 2010 Iván Valdés Castillo, released under the MIT license
+//  Created by Iv√°n Vald√©s Castillo on 4/12/10.
+//  Copyright (c) 2010 Iv√°n Vald√©s Castillo, released under the MIT license
 //
-//  Copyright 2015 Helmut K. C. Tessarek
+//  Copyright (c) Helmut K. C. Tessarek, 2015
 //
 
 #import "mongoPref.h"
