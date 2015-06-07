@@ -1,47 +1,23 @@
-mongoDB.prefpane
+MongoDB.prefPane
 ================
 
-Don't you love mongoDB. Don't you hate it literally drains your memory?
+MongoDB prefPane for MacOSX. Based on [Iván Valdés' mongodb-prefpane](https://github.com/ivanvc/mongodb-prefpane)
 
-Well, mongoDB prefpane is a simple shortcut to start/stop the mongoDB daemon.
+Prerequisites
+=============
 
-![Screenshot](http://ivanvc.github.com/mongodb-prefpane/images/screenshot.png)
+Does not include mongodb binaries, therefore you first need to install them from http://www.mongodb.org/downloads
 
 Installation
-------------
+============
 
-* Download the compressed binary version from the downloads page (prefered).
-* Clone the source and compile the source, then run the .prefpane generated
-  (check for it in ~/Library/Developer/Xcode/DerivedData).
-
-Updating
---------
-
-Just open the preference pane, and [Sparkle](http://sparkle.andymatuschak.org/)
-will do the magic.
-
-Configuration
--------------
-
-Edit the arguments, and choose the binary location, all from the UI (No more
-painful configuration :).
-
-Planned Features
-----------------
-
-* Enable/disable start mongod on login (LaunchAgents)
-* Enable/disable of a menu bar item for quick access
-
-Limitations
------------
-
-* It won't stop the daemon if it is running from a LaunchAgent.
+* Download the [binary](https://github.com/tessus/MongoDB-prefPane/releases/latest) of the latest release
+* Double-click the MongoDB.prefPane file
 
 Credits
--------
+=======
 
-[DaemonController](http://github.com/ivanvc/DaemonController)
+[mongodb-prefpane](https://github.com/ivanvc/mongodb-prefpane)
+[DaemonController](https://github.com/ivanvc/DaemonController)
 
-Original DaemonController and MBSliderButton based in the ones made
-by [Max Howell](http://github.com/mxcl)
-
+Original DaemonController and MBSliderButton by [Max Howell](https://github.com/mxcl)

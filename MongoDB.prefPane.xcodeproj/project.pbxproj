@@ -23,6 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */; };
+		0EB5C3631B24E88700FB9A19 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5C3621B24E88700FB9A19 /* README.md */; };
 		2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */; };
 		2C0B7F2813AC54980048CE8D /* FFYDaemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */; };
 		2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3D51D5138B53E20060BA1E /* Preferences.h */; };
@@ -73,6 +74,7 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MongoDB-Prefix.pch"; path = "Classes/MongoDB-Prefix.pch"; sourceTree = "<group>"; };
+		0EB5C3621B24E88700FB9A19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFYDaemonController.h; path = Lib/DaemonController/FFYDaemonController.h; sourceTree = "<group>"; };
 		2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFYDaemonController.m; path = Lib/DaemonController/FFYDaemonController.m; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		32DBCFA10370C40200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0EB5C3621B24E88700FB9A19 /* README.md */,
 				0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB5C3631B24E88700FB9A19 /* README.md in Sources */,
 				8D202CF10486D31800D8A456 /* mongoPref.m in Sources */,
 				2CD23D0C11BC6AA2005B6619 /* MBSliderButton.m in Sources */,
 				2CD9EB3F1384C231001BE97E /* ArgumentsViewController.m in Sources */,
