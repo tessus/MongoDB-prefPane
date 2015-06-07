@@ -90,7 +90,7 @@
 		2CD9EB3C1384C231001BE97E /* ArgumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentsViewController.m; sourceTree = "<group>"; };
 		32DBCFA20370C41700C91783 /* mongo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongo_Prefix.pch; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D202CF80486D31800D8A456 /* mongo.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mongo.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D202CF80486D31800D8A456 /* MongoDB.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MongoDB.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* mongoPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* mongoPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mongoPref.m; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D202CF80486D31800D8A456 /* mongo.prefPane */,
+				8D202CF80486D31800D8A456 /* MongoDB.prefPane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,9 +234,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8D202CE80486D31800D8A456 /* mongo */ = {
+		8D202CE80486D31800D8A456 /* MongoDB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "mongo" */;
+			buildConfigurationList = 1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "MongoDB" */;
 			buildPhases = (
 				8D202CE90486D31800D8A456 /* Headers */,
 				8D202CEC0486D31800D8A456 /* Resources */,
@@ -249,10 +249,10 @@
 			);
 			dependencies = (
 			);
-			name = mongo;
+			name = MongoDB;
 			productInstallPath = "$(HOME)/Library/PreferencePanes";
 			productName = mongo;
-			productReference = 8D202CF80486D31800D8A456 /* mongo.prefPane */;
+			productReference = 8D202CF80486D31800D8A456 /* MongoDB.prefPane */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +264,7 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Iván Valdés Castillo";
 			};
-			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "mongodb.prefpane" */;
+			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "MongoDB.prefPane" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -275,7 +275,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D202CE80486D31800D8A456 /* mongo */,
+				8D202CE80486D31800D8A456 /* MongoDB */,
 				2C5472171388BF4E007B8E64 /* Distribution */,
 			);
 		};
@@ -322,7 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nPREF_PANE_NAME=\"mongo.prefPane\"\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PREF_PANE_NAME/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://github.com/downloads/ivanvc/mongodb-prefpane\"\nRELEASENOTES_URL=\"http://ivanvc.github.com/mongodb-prefpane/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"mongo-prefPane Private Key\"\n\n#WD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PREF_PANE_NAME\"*.zip\nditto -ck --keepParent \"$PREF_PANE_NAME\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(LC_TIME=en_US date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\nopenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n| openssl dgst -dss1 -sign <(security find-generic-password -g -l \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | ruby -e \"puts STDIN.readlines.join.match(/<string>(.*)<\\/string>/m)[1]\") \\\n| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF > appcastnode.xml\n<item>\n<title>Version $VERSION</title>\n<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n<pubDate>$PUBDATE</pubDate>\n<enclosure\nurl=\"$DOWNLOAD_URL\"\nsparkle:version=\"$VERSION\"\ntype=\"application/octet-stream\"\nlength=\"$SIZE\"\nsparkle:dsaSignature=\"$SIGNATURE\"\n/>\n</item>\nEOF\n\nopen $BUILT_PRODUCTS_DIR";
+			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nPREF_PANE_NAME=\"MongoDB.prefPane\"\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PREF_PANE_NAME/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://github.com/downloads/ivanvc/mongodb-prefpane\"\nRELEASENOTES_URL=\"http://ivanvc.github.com/mongodb-prefpane/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME $VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"mongo-prefPane Private Key\"\n\n#WD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PREF_PANE_NAME\"*.zip\nditto -ck --keepParent \"$PREF_PANE_NAME\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(LC_TIME=en_US date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\nopenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n| openssl dgst -dss1 -sign <(security find-generic-password -g -l \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | ruby -e \"puts STDIN.readlines.join.match(/<string>(.*)<\\/string>/m)[1]\") \\\n| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF > appcastnode.xml\n<item>\n<title>Version $VERSION</title>\n<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n<pubDate>$PUBDATE</pubDate>\n<enclosure\nurl=\"$DOWNLOAD_URL\"\nsparkle:version=\"$VERSION\"\ntype=\"application/octet-stream\"\nlength=\"$SIZE\"\nsparkle:dsaSignature=\"$SIGNATURE\"\n/>\n</item>\nEOF\n\nopen $BUILT_PRODUCTS_DIR";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -344,7 +344,7 @@
 /* Begin PBXTargetDependency section */
 		2C54721C1388BF55007B8E64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8D202CE80486D31800D8A456 /* mongo */;
+			target = 8D202CE80486D31800D8A456 /* MongoDB */;
 			targetProxy = 2C54721B1388BF55007B8E64 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -390,7 +390,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_NAME = mongo;
+				PRODUCT_NAME = MongoDB;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = prefPane;
@@ -414,7 +414,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_NAME = mongo;
+				PRODUCT_NAME = MongoDB;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = prefPane;
@@ -469,7 +469,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "mongo" */ = {
+		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "MongoDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214908BA80EA00186707 /* Debug */,
@@ -478,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "mongodb.prefpane" */ = {
+		1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "MongoDB.prefPane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214D08BA80EA00186707 /* Debug */,

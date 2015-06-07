@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>MongoDB</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,7 +27,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>mongoPref.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>mongo</string>
+	<string>MongoDB</string>
 	<key>NSPrincipalClass</key>
 	<string>mongoPref</string>
 </dict>
