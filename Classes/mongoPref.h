@@ -16,12 +16,14 @@
 @interface mongoPref : NSPreferencePane {
 	MBSliderButton *__weak theSlider;
 	NSTextField *__weak launchPathTextField;
+	NSTextField *__weak pidtext;
 @private
 	FFYDaemonController *daemonController;
 }
 
 @property (nonatomic, weak) IBOutlet MBSliderButton	*theSlider;
 @property (nonatomic, weak) IBOutlet NSTextField *launchPathTextField;
+@property (nonatomic, weak) IBOutlet NSTextField *pidtext;
 
 - (IBAction)startStopDaemon:(id)sender;
 - (IBAction)locateBinary:(id)sender;

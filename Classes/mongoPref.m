@@ -23,6 +23,7 @@
 @synthesize theSlider;
 @synthesize daemonController;
 @synthesize launchPathTextField;
+@synthesize pidtext;
 
 - (id)initWithBundle:(NSBundle *)bundle {
 	if ((self = [super initWithBundle:bundle])) {
@@ -42,16 +43,20 @@
 	daemonController.startArguments = arguments;
 	
 	__weak typeof(theSlider) weakSlider = theSlider;
+	__weak typeof(pidtext) weakPidtext = pidtext;
 	
 	daemonController.daemonStartedCallback = ^(NSNumber *pid) {
+		[weakPidtext setStringValue:[pid stringValue]];
 		[weakSlider setState:NSOnState animate:YES];
 	};
 	
 	daemonController.daemonFailedToStartCallback = ^(NSString *reason) {
+		[weakPidtext setStringValue:@""];
 		[weakSlider setState:NSOffState animate:YES];
 	};
 
 	daemonController.daemonStoppedCallback = ^(void) {
+		[weakPidtext setStringValue:@""];
 		[weakSlider setState:NSOffState animate:YES];
 	};
 
@@ -76,7 +81,10 @@
 	daemonController.startArguments = arguments;
 
 	if (theSlider.state == NSOffState)
+	{
 		[daemonController stop];
+		[pidtext setStringValue:@""];
+	}
 	else
 		[daemonController start];
 }
@@ -92,6 +100,7 @@
 	if (tag == 0 && daemonController.isRunning)
 	{
 		[daemonController stop];
+		[pidtext setStringValue:@""];
 		[theSlider setState:NSOffState animate:YES];
 	}
 	if (tag == 1 && !daemonController.isRunning)
@@ -99,7 +108,6 @@
 		[daemonController start];
 	}
 }
-
 
 - (IBAction)locateBinary:(id)sender {
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
