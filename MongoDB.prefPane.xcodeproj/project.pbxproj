@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */; };
 		2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */; };
 		2C0B7F2813AC54980048CE8D /* FFYDaemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */; };
 		2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3D51D5138B53E20060BA1E /* Preferences.h */; };
@@ -37,7 +38,6 @@
 		2CD23D4211BC7082005B6619 /* button_knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD23D4011BC7082005B6619 /* button_knob.png */; };
 		2CD9EB3E1384C231001BE97E /* ArgumentsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD9EB3B1384C231001BE97E /* ArgumentsViewController.h */; };
 		2CD9EB3F1384C231001BE97E /* ArgumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9EB3C1384C231001BE97E /* ArgumentsViewController.m */; };
-		8D202CEA0486D31800D8A456 /* mongo_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* mongo_Prefix.pch */; };
 		8D202CEB0486D31800D8A456 /* mongoPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* mongoPref.h */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D202CEF0486D31800D8A456 /* mongoPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* mongoPref.xib */; };
@@ -72,6 +72,7 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MongoDB-Prefix.pch"; path = "Classes/MongoDB-Prefix.pch"; sourceTree = "<group>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFYDaemonController.h; path = Lib/DaemonController/FFYDaemonController.h; sourceTree = "<group>"; };
 		2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFYDaemonController.m; path = Lib/DaemonController/FFYDaemonController.m; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		2CD23D4011BC7082005B6619 /* button_knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_knob.png; sourceTree = "<group>"; };
 		2CD9EB3B1384C231001BE97E /* ArgumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentsViewController.h; sourceTree = "<group>"; };
 		2CD9EB3C1384C231001BE97E /* ArgumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentsViewController.m; sourceTree = "<group>"; };
-		32DBCFA20370C41700C91783 /* mongo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongo_Prefix.pch; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* MongoDB.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MongoDB.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
@@ -210,7 +210,7 @@
 		32DBCFA10370C40200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCFA20370C41700C91783 /* mongo_Prefix.pch */,
+				0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -222,9 +222,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D202CEA0486D31800D8A456 /* mongo_Prefix.pch in Headers */,
 				8D202CEB0486D31800D8A456 /* mongoPref.h in Headers */,
 				2CD23D0B11BC6AA2005B6619 /* MBSliderButton.h in Headers */,
+				0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */,
 				2CD9EB3E1384C231001BE97E /* ArgumentsViewController.h in Headers */,
 				2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */,
 				2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */,
@@ -386,7 +386,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = mongo_Prefix.pch;
+				GCC_PREFIX_HEADER = "Classes/MongoDB-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -410,7 +410,7 @@
 					"\"$(SRCROOT)/Lib\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = mongo_Prefix.pch;
+				GCC_PREFIX_HEADER = "Classes/MongoDB-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
