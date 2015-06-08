@@ -29,6 +29,12 @@
 	if ((self = [super initWithBundle:bundle])) {
 		[[Preferences sharedPreferences] setBundle:bundle];
 	}
+
+	numClicked = 0;
+	NSDictionary* infoDict = [[NSBundle bundleForClass:[self class]] infoDictionary];
+	version = [[NSString alloc] initWithFormat:@"%@ (%@)", [infoDict objectForKey:@"CFBundleShortVersionString" ], [infoDict objectForKey:@"CFBundleVersion" ]];
+	githash = [[NSString alloc] initWithFormat:@"%@", [infoDict objectForKey:@"GitHash" ]];
+	[versionText setTitle:version];
 	
 	return self;
 }
@@ -41,12 +47,14 @@
 	
 	daemonController.launchPath     = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 	daemonController.startArguments = arguments;
-	
+
+	[versionText setTitle:version];
+
 	__weak typeof(theSlider) weakSlider = theSlider;
 	__weak typeof(pidtext) weakPidtext = pidtext;
 	
 	daemonController.daemonStartedCallback = ^(NSNumber *pid) {
-		[weakPidtext setStringValue:[pid stringValue]];
+		[weakPidtext setStringValue:[[NSString alloc] initWithFormat:@"PID: %@", pid ]];
 		[weakSlider setState:NSOnState animate:YES];
 	};
 	
@@ -72,6 +80,23 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (IBAction)clickVersion:(id)sender {
+	numClicked++;
+
+	if ((numClicked % 2) == 1) {
+		[versionText setTitle:githash];
+	}
+	else
+	{
+		[versionText setTitle:version];
+		numClicked = 0;
+	}
+}
+
+- (IBAction)openWebsite:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"https://github.com/tessus/MongoDB-prefPane"]];
 }
 
 - (IBAction)startStopDaemon:(id)sender {

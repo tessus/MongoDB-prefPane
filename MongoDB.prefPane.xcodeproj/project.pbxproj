@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0EB5C3641B252FB100FB9A19 /* Generate Git Version */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0EB5C3651B252FB200FB9A19 /* Build configuration list for PBXAggregateTarget "Generate Git Version" */;
+			buildPhases = (
+				0EB5C3681B252FB800FB9A19 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Generate Git Version";
+			productName = "Generate Git Version";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */; };
 		2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */; };
@@ -24,12 +38,21 @@
 		2CD9EB3E1384C231001BE97E /* ArgumentsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD9EB3B1384C231001BE97E /* ArgumentsViewController.h */; };
 		2CD9EB3F1384C231001BE97E /* ArgumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9EB3C1384C231001BE97E /* ArgumentsViewController.m */; };
 		8D202CEB0486D31800D8A456 /* mongoPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* mongoPref.h */; };
-		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D202CEF0486D31800D8A456 /* mongoPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* mongoPref.xib */; };
 		8D202CF10486D31800D8A456 /* mongoPref.m in Sources */ = {isa = PBXBuildFile; fileRef = F506C03D013D9D7901CA16C8 /* mongoPref.m */; };
 		8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F506C035013D953901CA16C8 /* PreferencePanes.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EB5C3691B25307C00FB9A19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EB5C3641B252FB100FB9A19;
+			remoteInfo = "Generate Git Version";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2C79991513861C8E000F1A2E /* CopyFiles */ = {
@@ -45,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MongoDB-Prefix.pch"; path = "Classes/MongoDB-Prefix.pch"; sourceTree = "<group>"; };
 		0EB5C3621B24E88700FB9A19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -118,7 +140,6 @@
 				2C62ECB51173CD8200F27B65 /* mongo.icns */,
 				2C62ECBE1173CEA800F27B65 /* mongoPref.tiff */,
 				8D202CF70486D31800D8A456 /* Info.plist */,
-				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				2C62ECAC1173C84500F27B65 /* logo-mongodb-onwhite.png */,
 				F506C042013D9D8C01CA16C8 /* mongoPref.xib */,
 			);
@@ -225,6 +246,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0EB5C36A1B25307C00FB9A19 /* PBXTargetDependency */,
 			);
 			name = MongoDB;
 			productInstallPath = "$(HOME)/Library/PreferencePanes";
@@ -240,6 +262,11 @@
 			attributes = {
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Helmut K. C. Tessarek";
+				TargetAttributes = {
+					0EB5C3641B252FB100FB9A19 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
 			};
 			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "MongoDB.prefPane" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -253,6 +280,7 @@
 			projectRoot = "";
 			targets = (
 				8D202CE80486D31800D8A456 /* MongoDB */,
+				0EB5C3641B252FB100FB9A19 /* Generate Git Version */,
 			);
 		};
 /* End PBXProject section */
@@ -262,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */,
 				8D202CEF0486D31800D8A456 /* mongoPref.xib in Resources */,
 				2C62ECAD1173C84500F27B65 /* logo-mongodb-onwhite.png in Resources */,
 				2C62ECB61173CD8200F27B65 /* mongo.icns in Resources */,
@@ -286,6 +313,22 @@
 		};
 /* End PBXRezBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0EB5C3681B252FB800FB9A19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "GIT=/usr/bin/git\nSEP=\"_\"\nINFOPLIST=Classes/InfoPlist.h\n\n# CFBundleShortVersionString\tx.y[.z]\n# CFBundleVersion\t\t\t\tx.y.z-githash\n\ngithash=`$GIT log -1 --pretty=oneline --abbrev-commit |cut -c1-7`\nrevision=`$GIT log --oneline | wc -l |tr -d [[:space:]]`\n\n# if no tag, set x.y to 0.0\nif [ `$GIT describe --long 2>&1 |cut -c1-5` == \"fatal\" ]\nthen\nversion=0.0\ninternal_version=0.0.0${SEP}$githash\n\nelse\n\n# get tag and long tag name (w/o the githash)\nTAG=`$GIT describe --tags`\nTAGLONG=`$GIT describe --tags --long |sed \"s/-g${githash}//\"`\n\n# remove leading characters\nTAG=`echo $TAG |sed 's/[a-zA-Z]*//'`\nTAGLONG=`echo $TAGLONG |sed 's/[a-zA-Z]*//'`\n\n# get the number of commits since last tag\nTMP1=`expr \"$TAGLONG\" : '.*\\(-[0-9]*\\)'`\n\nif [ \"$TMP1\" == \"0\" ]\nthen\ncommits=0\nelse\ncommits=`echo $TMP1 |cut -c2-`\nfi\n\n# clean tag: remove anything after the version, replace consecutive . with one ., remove trailing .\nTAG=`echo $TAG | sed 's/\\([0-9\\.]*\\).*/\\1/' | sed 's/[\\.]\\{2,\\}/\\./g' | sed 's/\\.*$//'`\n\n# create version and internal_version\nversion=$TAG\n\nif [ \"$commits\" != \"0\" ] # if no commits since tagged, omit the zero in version\nthen\nversion=${TAG}.${commits}\nfi\n\ninternal_version=${TAG}.${commits}${SEP}${githash}\n\nfi\n\necho \"#define VERSION_INFO $version\" > $INFOPLIST\necho \"#define INTERNAL_VERSION_INFO $internal_version\" >> $INFOPLIST\necho \"#define GIT_HASH_INFO $githash\" >> $INFOPLIST\necho \"#define REVISION_INFO $revision\" >> $INFOPLIST\necho \"\" >> $INFOPLIST\necho \"#define VERSION \\\"$version\\\"\" >> $INFOPLIST\necho \"#define INTERNAL_VERSION \\\"$internal_version\\\"\" >> $INFOPLIST\necho \"#define GIT_HASH \\\"$githash\\\"\" >> $INFOPLIST\necho \"#define REVISION \\\"$revision\\\"\" >> $INFOPLIST\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D202CF00486D31800D8A456 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -301,16 +344,15 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C167EFE841241C02AAC07 /* English */,
-			);
-			name = InfoPlist.strings;
-			path = ..;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		0EB5C36A1B25307C00FB9A19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EB5C3641B252FB100FB9A19 /* Generate Git Version */;
+			targetProxy = 0EB5C3691B25307C00FB9A19 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		F506C042013D9D8C01CA16C8 /* mongoPref.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -323,6 +365,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0EB5C3661B252FB200FB9A19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0EB5C3671B252FB200FB9A19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		1DBD214908BA80EA00186707 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +436,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INFOPLIST_PREFIX_HEADER = Classes/InfoPlist.h;
+				INFOPLIST_PREPROCESS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -395,6 +455,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PKGINFO_FILE = YES;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INFOPLIST_PREFIX_HEADER = Classes/InfoPlist.h;
+				INFOPLIST_PREPROCESS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
 				SDKROOT = macosx;
@@ -405,6 +469,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EB5C3651B252FB200FB9A19 /* Build configuration list for PBXAggregateTarget "Generate Git Version" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EB5C3661B252FB200FB9A19 /* Debug */,
+				0EB5C3671B252FB200FB9A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "MongoDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

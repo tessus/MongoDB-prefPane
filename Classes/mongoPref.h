@@ -19,6 +19,10 @@
 	NSTextField *__weak pidtext;
 @private
 	FFYDaemonController *daemonController;
+	IBOutlet NSButton *versionText;
+	int numClicked;
+	NSString *version;
+	NSString *githash;
 }
 
 @property (nonatomic, weak) IBOutlet MBSliderButton	*theSlider;
@@ -27,5 +31,7 @@
 
 - (IBAction)startStopDaemon:(id)sender;
 - (IBAction)locateBinary:(id)sender;
+- (IBAction)openWebsite:(id)sender;
+- (IBAction)clickVersion:(id)sender;
 
 @end

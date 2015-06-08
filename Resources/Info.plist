@@ -17,11 +17,13 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2</string>
+	<string>VERSION_INFO</string>
+	<key>CFBundleVersion</key>
+	<string>REVISION_INFO</string>
+	<key>GitHash</key>
+	<string>GIT_HASH_INFO</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>0.2</string>
 	<key>NSMainNibFile</key>
 	<string>mongoPref</string>
 	<key>NSPrefPaneIconFile</key>
@@ -30,5 +32,7 @@
 	<string>MongoDB</string>
 	<key>NSPrincipalClass</key>
 	<string>mongoPref</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© Helmut K. C. Tessarek, 2015</string>
 </dict>
 </plist>
