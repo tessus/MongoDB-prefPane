@@ -13,37 +13,16 @@
 @implementation Preferences
 @synthesize bundle;
 
-#pragma mark - Singleton
-
-static Preferences *sharedPreferences = nil;
-
 + (Preferences *)sharedPreferences {
+	static Preferences *sharedPreferences = nil;
+
 	@synchronized(self) {
 		if (!sharedPreferences)
-			[[self alloc] init];
-		
-		return sharedPreferences;
+			sharedPreferences = [[self alloc] init];
 	}
-	
+
 	return sharedPreferences;
 }
-
-+ (id)allocWithZone:(NSZone *)zone {
-	@synchronized(self) {
-		if (!sharedPreferences) {
-			sharedPreferences = [super allocWithZone:zone];
-			return sharedPreferences;
-		}
-	}
-	
-	return nil;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-	return self;
-}
-
-#pragma mark - Read/Write User defaults
 
 - (id)objectForUserDefaultsKey:(NSString *)key {
 	CFPropertyListRef obj = CFPreferencesCopyAppValue((CFStringRef)key, (CFStringRef)[bundle bundleIdentifier]);
@@ -72,8 +51,6 @@ static Preferences *sharedPreferences = nil;
 	
 	return (NSArray *)theArgumentsWithParameters;
 }
-
-#pragma mark - Custom Setters and Getters
 
 - (void)setBundle:(NSBundle *)aBundle
 {
