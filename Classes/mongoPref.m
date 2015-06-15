@@ -25,15 +25,15 @@
 @synthesize launchPathTextField;
 @synthesize pidtext;
 
-- (id)initWithBundle:(NSBundle *)bundle {
+- (instancetype)initWithBundle:(NSBundle *)bundle {
 	if ((self = [super initWithBundle:bundle])) {
 		[[Preferences sharedPreferences] setBundle:bundle];
 	}
 
 	numClicked = 0;
 	NSDictionary* infoDict = [[NSBundle bundleForClass:[self class]] infoDictionary];
-	version = [[NSString alloc] initWithFormat:@"%@ (%@)", [infoDict objectForKey:@"CFBundleShortVersionString" ], [infoDict objectForKey:@"CFBundleVersion" ]];
-	githash = [[NSString alloc] initWithFormat:@"%@", [infoDict objectForKey:@"GitHash" ]];
+	version = [[NSString alloc] initWithFormat:@"%@ (%@)", infoDict[@"CFBundleShortVersionString"], infoDict[@"CFBundleVersion"]];
+	githash = [[NSString alloc] initWithFormat:@"%@", infoDict[@"GitHash"]];
 	[versionText setTitle:version];
 	
 	return self;

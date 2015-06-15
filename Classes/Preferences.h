@@ -1,5 +1,5 @@
 //
-//  Properties.h
+//  Preferences.h
 //  mongodb.prefpane
 //
 //  Created by Ivan on 5/23/11.
@@ -18,6 +18,6 @@
 
 - (id)objectForUserDefaultsKey:(NSString *)key;
 - (void)setObject:(id)value forUserDefaultsKey:(NSString *)key;
-- (NSArray *)argumentsWithParameters;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *argumentsWithParameters;
 
 @end

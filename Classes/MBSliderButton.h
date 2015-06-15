@@ -32,8 +32,7 @@
 -(IBAction)moveLeft:(id)sender;
 -(IBAction)moveRight:(id)sender;
 
--(NSInteger)state;
--(void)setState:(NSInteger)newstate;
+@property (NS_NONATOMIC_IOSONLY) NSInteger state;
 -(void)setState:(NSInteger)newstate animate:(bool)animate;
 
 @end

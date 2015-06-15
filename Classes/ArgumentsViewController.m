@@ -25,7 +25,7 @@
 
 #pragma mark - Initialization
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
 		self.arguments  = [NSMutableArray arrayWithArray:[[Preferences sharedPreferences] objectForUserDefaultsKey:@"arguments"]];
@@ -52,18 +52,18 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	if ([[tableColumn identifier] isEqualToString:@"argumentColumn"])
-		return [self.arguments objectAtIndex:row];
+		return (self.arguments)[row];
 	if ([[tableColumn identifier] isEqualToString:@"parametersColumn"])
-		return [self.parameters objectAtIndex:row];
+		return (self.parameters)[row];
 	
 	return nil;
 }
 
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	if ([[tableColumn identifier] isEqualToString:@"argumentColumn"])
-		[self.arguments replaceObjectAtIndex:row withObject:(NSString *)object];
+		(self.arguments)[row] = (NSString *)object;
 	if ([[tableColumn identifier] isEqualToString:@"parametersColumn"])
-		[self.parameters replaceObjectAtIndex:row withObject:(NSString *)object];
+		(self.parameters)[row] = (NSString *)object;
 	
 	[self updatePreferences];
 }

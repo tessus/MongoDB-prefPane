@@ -1,5 +1,5 @@
 //
-//  Properties.m
+//  Preferences.m
 //  mongodb.prefpane
 //
 //  Created by Ivan on 5/23/11.
@@ -40,7 +40,7 @@
 	
 	[[self objectForUserDefaultsKey:@"arguments"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		NSString *argument  = obj;
-		NSString *parameter = [[parameters objectAtIndex:idx] stringByExpandingTildeInPath];
+		NSString *parameter = [parameters[idx] stringByExpandingTildeInPath];
 		
 		if ([argument length] && [argument characterAtIndex:0] == '-') {
 			[theArgumentsWithParameters addObject:argument];
@@ -61,9 +61,9 @@
 		if (bundle)
 		{
 			if (![self objectForUserDefaultsKey:@"arguments"])
-				[self setObject:[NSArray array] forUserDefaultsKey:@"arguments"];
+				[self setObject:@[] forUserDefaultsKey:@"arguments"];
 			if (![self objectForUserDefaultsKey:@"parameters"])
-				[self setObject:[NSArray array] forUserDefaultsKey:@"parameters"];
+				[self setObject:@[] forUserDefaultsKey:@"parameters"];
 			if (![self objectForUserDefaultsKey:@"launchPath"] || [[self objectForUserDefaultsKey:@"launchPath"] isEqualToString:@""])
 			{
 				NSFileManager *fileManager = [NSFileManager defaultManager];

@@ -29,7 +29,7 @@
 }
 @end
 @implementation MBKnobAnimation
--(id)initWithStart:(int)begin end:(int)end
+-(instancetype)initWithStart:(int)begin end:(int)end
 {
 	if (!(self = [super init])) return nil;
 	start = begin;
@@ -40,7 +40,7 @@
 {
 	int x = start+progress*range;
 	[super setCurrentProgress:progress];
-	[delegate performSelector:@selector(setPosition:) withObject:[NSNumber numberWithInteger:x]];
+	[delegate performSelector:@selector(setPosition:) withObject:@(x)];
 }
 -(void)setDelegate:(id)d
 {

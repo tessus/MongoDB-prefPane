@@ -82,7 +82,7 @@
 - (void)poll:(NSTimer*)timer;
 - (void)failedToStartDaemonTask:(NSString *)reason;
 - (void)checkIfDaemonIsRunning;
-- (BOOL)didStopWithArguments;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL didStopWithArguments;
 @end
 
 // ## C Methods
@@ -221,7 +221,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 		if (startArguments)
 			daemonTask.arguments = startArguments;
 		else
-			daemonTask.arguments = [NSArray array];
+			daemonTask.arguments = @[];
 		
 		// Observe the task for its termination.
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(daemonTerminated:) name:NSTaskDidTerminateNotification object:daemonTask];
@@ -276,7 +276,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 
 // Returns the process id from the daemon, or 0 if not running.
 - (NSNumber *)pid {
-	return [NSNumber numberWithInt:pid];
+	return @(pid);
 }
 
 // Returns if the daemon is running.
