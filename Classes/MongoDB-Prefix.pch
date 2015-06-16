@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'mongo' target in the 'mongo' project.
+// Prefix header for all source files of the 'MongoDB' target in the 'MongoDB.prefPane' project.
 //
 
 #ifdef __OBJC__
