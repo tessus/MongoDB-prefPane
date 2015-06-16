@@ -10,7 +10,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ArgumentsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
+@interface MDBArgumentsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
 	NSTableView *tableView;
 @private
 	NSMutableArray *arguments;

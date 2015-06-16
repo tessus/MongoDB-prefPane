@@ -22,8 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */; };
-		2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */; };
-		2C0B7F2813AC54980048CE8D /* FFYDaemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */; };
+		2C0B7F2713AC54980048CE8D /* DaemonController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0B7F2513AC54980048CE8D /* DaemonController.h */; };
+		2C0B7F2813AC54980048CE8D /* DaemonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B7F2613AC54980048CE8D /* DaemonController.m */; };
 		2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3D51D5138B53E20060BA1E /* Preferences.h */; };
 		2C3D51D8138B53E20060BA1E /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D51D6138B53E20060BA1E /* Preferences.m */; };
 		2C62ECAD1173C84500F27B65 /* logo-mongodb-onwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C62ECAC1173C84500F27B65 /* logo-mongodb-onwhite.png */; };
@@ -72,8 +72,8 @@
 		0EB5C35F1B24E65000FB9A19 /* MongoDB-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MongoDB-Prefix.pch"; path = "Classes/MongoDB-Prefix.pch"; sourceTree = "<group>"; };
 		0EB5C3621B24E88700FB9A19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFYDaemonController.h; path = Lib/DaemonController/FFYDaemonController.h; sourceTree = "<group>"; };
-		2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFYDaemonController.m; path = Lib/DaemonController/FFYDaemonController.m; sourceTree = "<group>"; };
+		2C0B7F2513AC54980048CE8D /* DaemonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DaemonController.h; path = Lib/DaemonController/DaemonController.h; sourceTree = "<group>"; };
+		2C0B7F2613AC54980048CE8D /* DaemonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DaemonController.m; path = Lib/DaemonController/DaemonController.m; sourceTree = "<group>"; };
 		2C3D51D5138B53E20060BA1E /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		2C3D51D6138B53E20060BA1E /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		2C62ECAC1173C84500F27B65 /* logo-mongodb-onwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-mongodb-onwhite.png"; sourceTree = "<group>"; };
@@ -198,8 +198,8 @@
 		2C0B7F2413AC547A0048CE8D /* DaemonController */ = {
 			isa = PBXGroup;
 			children = (
-				2C0B7F2513AC54980048CE8D /* FFYDaemonController.h */,
-				2C0B7F2613AC54980048CE8D /* FFYDaemonController.m */,
+				2C0B7F2513AC54980048CE8D /* DaemonController.h */,
+				2C0B7F2613AC54980048CE8D /* DaemonController.m */,
 			);
 			name = DaemonController;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				0EB5C3601B24E65000FB9A19 /* MongoDB-Prefix.pch in Headers */,
 				2CD9EB3E1384C231001BE97E /* ArgumentsViewController.h in Headers */,
 				2C3D51D7138B53E20060BA1E /* Preferences.h in Headers */,
-				2C0B7F2713AC54980048CE8D /* FFYDaemonController.h in Headers */,
+				2C0B7F2713AC54980048CE8D /* DaemonController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +338,7 @@
 				2CD23D0C11BC6AA2005B6619 /* MBSliderButton.m in Sources */,
 				2CD9EB3F1384C231001BE97E /* ArgumentsViewController.m in Sources */,
 				2C3D51D8138B53E20060BA1E /* Preferences.m in Sources */,
-				2C0B7F2813AC54980048CE8D /* FFYDaemonController.m in Sources */,
+				2C0B7F2813AC54980048CE8D /* DaemonController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +476,7 @@
 				0EB5C3671B252FB200FB9A19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DBD214808BA80EA00186707 /* Build configuration list for PBXNativeTarget "MongoDB" */ = {
 			isa = XCConfigurationList;

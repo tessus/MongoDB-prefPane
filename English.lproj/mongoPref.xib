@@ -35,7 +35,7 @@
                         <rect key="frame" x="58" y="71" width="181" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <customView id="136" customClass="MBSliderButton">
+                            <customView id="136" customClass="MDBMBSliderButton">
                                 <rect key="frame" x="50" y="11" width="89" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -112,7 +112,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="148" id="150">
-                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="301" height="19"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -144,7 +144,7 @@
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             </tableColumn>
-                                                            <tableColumn identifier="deleteColumn" width="33" minWidth="10" maxWidth="3.4028234663852886e+38" id="173">
+                                                            <tableColumn identifier="deleteColumn" width="17" minWidth="10" maxWidth="3.4028234663852886e+38" id="173">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -250,7 +250,7 @@
             </view>
             <point key="canvasLocation" x="140" y="143"/>
         </window>
-        <viewController id="168" customClass="ArgumentsViewController">
+        <viewController id="168" customClass="MDBArgumentsViewController">
             <connections>
                 <outlet property="tableView" destination="150" id="176"/>
                 <outlet property="view" destination="172" id="175"/>

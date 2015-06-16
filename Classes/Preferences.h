@@ -8,13 +8,13 @@
 //  Copyright (c) Helmut K. C. Tessarek, 2015
 //
 
-@interface Preferences : NSObject {
+@interface MDBPreferences : NSObject {
 	NSBundle *bundle;
 }
 
 @property (nonatomic, strong) NSBundle *bundle;
 
-+ (Preferences *)sharedPreferences;
++ (MDBPreferences *)sharedPreferences;
 
 - (id)objectForUserDefaultsKey:(NSString *)key;
 - (void)setObject:(id)value forUserDefaultsKey:(NSString *)key;

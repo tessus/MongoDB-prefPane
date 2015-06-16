@@ -20,7 +20,7 @@
 #import <PreferencePanes/PreferencePanes.h>
 
 
-@interface MBSliderButton : NSControl<NSAnimationDelegate>
+@interface MDBMBSliderButton : NSControl<NSAnimationDelegate>
 {
 	NSPoint location;
 	IBOutlet NSPreferencePane* prefpane;

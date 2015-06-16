@@ -22,13 +22,13 @@
 #define KNOB_MIN_X 0
 #define KNOB_MAX_X (WIDTH-KNOB_WIDTH)
 
-@interface MBKnobAnimation : NSAnimation
+@interface MDBMBKnobAnimation : NSAnimation
 {
 	int start, range;
 	id delegate;
 }
 @end
-@implementation MBKnobAnimation
+@implementation MDBMBKnobAnimation
 -(instancetype)initWithStart:(int)begin end:(int)end
 {
 	if (!(self = [super init])) return nil;
@@ -51,7 +51,7 @@
 
 #import "MBSliderButton.h"
 
-@implementation MBSliderButton
+@implementation MDBMBSliderButton
 
 -(void)awakeFromNib
 {
@@ -97,7 +97,7 @@
 
 -(void)animateTo:(int)x
 {
-	MBKnobAnimation* a = [[MBKnobAnimation alloc] initWithStart:location.x end:x];
+	MDBMBKnobAnimation* a = [[MDBMBKnobAnimation alloc] initWithStart:location.x end:x];
 	[a setDelegate:self];
 	if (location.x == 0 || location.x == KNOB_MAX_X){
 		[a setDuration:0.20];

@@ -1,5 +1,5 @@
 //
-//  <!-- FFYDaemonController -->
+//  <!-- DaemonController -->
 //  Based on *DaemonController* by
 //  [Max Howell](https://github.com/mxcl/playdar.prefpane/blob/master/DaemonController.h).
 //  Created by Ivan Valdes on 4/14/2010.
@@ -56,7 +56,7 @@
 // [dct]: #section-Control_Tasks
 
 #import <sys/sysctl.h>
-#import "FFYDaemonController.h"
+#import "DaemonController.h"
 
 // ## Hidden Methods
 //
@@ -69,7 +69,7 @@
 //
 // The daemon task holds the active task, in case that the daemon was initialized by us.
 //
-@interface FFYDaemonController(/* Hidden Methods */)
+@interface MDBDaemonController(/* Hidden Methods */)
 @property (nonatomic, strong) NSString *binaryName;
 @property (nonatomic, strong) NSTimer  *pollTimer;
 @property (nonatomic, strong) NSTask   *daemonTask;
@@ -158,7 +158,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 //
 // There's three properties that are important in order to start, stop, run and monitor
 // a daemon.
-@implementation FFYDaemonController
+@implementation MDBDaemonController
 // The launchPath is the daemon binary's absolute location.
 @synthesize launchPath;
 // If the daemon needs any special arguments to be started, this is the array where

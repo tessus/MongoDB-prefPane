@@ -10,22 +10,22 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 
-@class FFYDaemonController;
-@class MBSliderButton;
+@class MDBDaemonController;
+@class MDBMBSliderButton;
 
 @interface mongoPref : NSPreferencePane {
-	MBSliderButton *__weak theSlider;
+	MDBMBSliderButton *__weak theSlider;
 	NSTextField *__weak launchPathTextField;
 	NSTextField *__weak pidtext;
 @private
-	FFYDaemonController *daemonController;
+	MDBDaemonController *daemonController;
 	IBOutlet NSButton *versionText;
 	int numClicked;
 	NSString *version;
 	NSString *githash;
 }
 
-@property (nonatomic, weak) IBOutlet MBSliderButton	*theSlider;
+@property (nonatomic, weak) IBOutlet MDBMBSliderButton *theSlider;
 @property (nonatomic, weak) IBOutlet NSTextField *launchPathTextField;
 @property (nonatomic, weak) IBOutlet NSTextField *pidtext;
 

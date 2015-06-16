@@ -10,11 +10,11 @@
 
 #import "Preferences.h"
 
-@implementation Preferences
+@implementation MDBPreferences
 @synthesize bundle;
 
-+ (Preferences *)sharedPreferences {
-	static Preferences *sharedPreferences = nil;
++ (MDBPreferences *)sharedPreferences {
+	static MDBPreferences *sharedPreferences = nil;
 
 	@synchronized(self) {
 		if (!sharedPreferences)

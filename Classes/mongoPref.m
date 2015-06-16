@@ -10,13 +10,13 @@
 
 #import "mongoPref.h"
 #import "MBSliderButton.h"
-#import "FFYDaemonController.h"
+#import "DaemonController.h"
 #import "Preferences.h"
 
 @interface mongoPref(/* Hidden Methods */)
 - (void)binaryLocationChanged:(NSNotification *)notification;
 
-@property (nonatomic, strong) FFYDaemonController *daemonController;
+@property (nonatomic, strong) MDBDaemonController *daemonController;
 @end
 
 @implementation mongoPref
@@ -27,7 +27,7 @@
 
 - (instancetype)initWithBundle:(NSBundle *)bundle {
 	if ((self = [super initWithBundle:bundle])) {
-		[[Preferences sharedPreferences] setBundle:bundle];
+		[[MDBPreferences sharedPreferences] setBundle:bundle];
 	}
 
 	numClicked = 0;
@@ -40,12 +40,12 @@
 }
 
 - (void)mainViewDidLoad {
-	FFYDaemonController *dC = [[FFYDaemonController alloc] init];
+	MDBDaemonController *dC = [[MDBDaemonController alloc] init];
 	self.daemonController = dC;
 	
-	NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
+	NSMutableArray *arguments = (NSMutableArray *)[[MDBPreferences sharedPreferences] argumentsWithParameters];
 	
-	daemonController.launchPath     = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
+	daemonController.launchPath     = [[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 	daemonController.startArguments = arguments;
 
 	[versionText setTitle:version];
@@ -100,9 +100,9 @@
 }
 
 - (IBAction)startStopDaemon:(id)sender {
-	NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
+	NSMutableArray *arguments = (NSMutableArray *)[[MDBPreferences sharedPreferences] argumentsWithParameters];
 	
-	daemonController.launchPath     = [[[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
+	daemonController.launchPath     = [[[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
 	daemonController.startArguments = arguments;
 
 	if (theSlider.state == NSOffState)
@@ -115,9 +115,9 @@
 }
 
 - (IBAction)clickOnOff:(id)sender {
-	NSMutableArray *arguments = (NSMutableArray *)[[Preferences sharedPreferences] argumentsWithParameters];
+	NSMutableArray *arguments = (NSMutableArray *)[[MDBPreferences sharedPreferences] argumentsWithParameters];
 
-	daemonController.launchPath     = [[[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
+	daemonController.launchPath     = [[[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
 	daemonController.startArguments = arguments;
 
 	int tag = (int)[sender tag];
@@ -145,14 +145,14 @@
 	
 	if ([openPanel runModal] == NSOKButton) {
 		[launchPathTextField setStringValue:[openPanel.URL path]];
-		[[Preferences sharedPreferences] setObject:[launchPathTextField stringValue] forUserDefaultsKey:@"launchPath"];
-		daemonController.launchPath = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
+		[[MDBPreferences sharedPreferences] setObject:[launchPathTextField stringValue] forUserDefaultsKey:@"launchPath"];
+		daemonController.launchPath = [[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 	}
 }
 
 - (void)binaryLocationChanged:(NSNotification *)notification {
-	[[Preferences sharedPreferences] setObject:[launchPathTextField stringValue] forUserDefaultsKey:@"launchPath"];
-	daemonController.launchPath = [[Preferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
+	[[MDBPreferences sharedPreferences] setObject:[launchPathTextField stringValue] forUserDefaultsKey:@"launchPath"];
+	daemonController.launchPath = [[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
 }
 
 @end

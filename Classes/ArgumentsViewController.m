@@ -11,14 +11,14 @@
 #import "ArgumentsViewController.h"
 #import "Preferences.h"
 
-@interface ArgumentsViewController(/* Hidden Methods*/)
+@interface MDBArgumentsViewController(/* Hidden Methods*/)
 @property (nonatomic, strong) NSMutableArray *arguments;
 @property (nonatomic, strong) NSMutableArray *parameters;
 - (void)removeArgument:(id)sender;
 - (void)updatePreferences;
 @end
 
-@implementation ArgumentsViewController
+@implementation MDBArgumentsViewController
 @synthesize tableView;
 @synthesize arguments;
 @synthesize parameters;
@@ -28,8 +28,8 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
-		self.arguments  = [NSMutableArray arrayWithArray:[[Preferences sharedPreferences] objectForUserDefaultsKey:@"arguments"]];
-		self.parameters = [NSMutableArray arrayWithArray:[[Preferences sharedPreferences] objectForUserDefaultsKey:@"parameters"]];
+		self.arguments  = [NSMutableArray arrayWithArray:[[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"arguments"]];
+		self.parameters = [NSMutableArray arrayWithArray:[[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"parameters"]];
 	}
 	
 	return self;
@@ -38,9 +38,9 @@
 #pragma mark - Preferences management
 
 - (void)updatePreferences {
-	[[Preferences sharedPreferences] setObject:[NSArray arrayWithArray:self.arguments]
+	[[MDBPreferences sharedPreferences] setObject:[NSArray arrayWithArray:self.arguments]
 							forUserDefaultsKey:@"arguments"];
-	[[Preferences sharedPreferences] setObject:[NSArray arrayWithArray:self.parameters]
+	[[MDBPreferences sharedPreferences] setObject:[NSArray arrayWithArray:self.parameters]
 							forUserDefaultsKey:@"parameters"];
 }
 
