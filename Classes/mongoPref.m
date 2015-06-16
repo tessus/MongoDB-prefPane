@@ -96,7 +96,7 @@
 }
 
 - (IBAction)openWebsite:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"https://github.com/tessus/MongoDB-prefPane"]];
+	[[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"http://tessus.github.io/MongoDB-prefPane"]];
 }
 
 - (IBAction)startStopDaemon:(id)sender {
