@@ -18,6 +18,7 @@ Credits
 =======
 
 [mongodb-prefpane](https://github.com/ivanvc/mongodb-prefpane)
+
 [DaemonController](https://github.com/ivanvc/DaemonController)
 
 Original DaemonController and MBSliderButton by [Max Howell](https://github.com/mxcl)
