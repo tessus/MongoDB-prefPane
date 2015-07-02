@@ -1,3 +1,7 @@
+branches:
+  except:
+    - /^(\d)+(\.(\d)+)*[a-z]*$/
+
 language: objective-c
 script:
   - xcodebuild -project MongoDB.prefPane.xcodeproj -configuration "Release" build
