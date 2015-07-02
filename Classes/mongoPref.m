@@ -49,6 +49,7 @@
 	daemonController.startArguments = arguments;
 
 	[versionText setTitle:version];
+	[versionText sizeToFit];
 
 	__weak typeof(theSlider) weakSlider = theSlider;
 	__weak typeof(pidtext) weakPidtext = pidtext;
