@@ -55,6 +55,8 @@
 // [cbs]: #section-Callbacks
 // [dct]: #section-Control_Tasks
 
+#import <sys/proc_info.h>
+#import <libproc.h>
 #import <sys/sysctl.h>
 #import "DaemonController.h"
 
@@ -90,30 +92,27 @@
 // Checks for the PID of a given daemon. If it's running, it will return the
 // PID. If not, it will return 0.
 static pid_t daemon_pid(const char *binary) {
-	int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
-	struct kinfo_proc *info;
-	size_t totalTasks;
-	pid_t pid = 0;
-	
-	// Means that there are no running tasks. Very unlikely.
-	if (sysctl(mib, 3, NULL, &totalTasks, NULL, 0) < 0)
-		return 0;
-	// Not able to allocate the memory. Unlikey.
-	if (!(info = NSZoneMalloc(NULL, totalTasks)))
-		return 0;
-	if (sysctl(mib, 3, info, &totalTasks, NULL, 0) >= 0) {
-		// Search for the process id that matches the name of our daemon.
-		totalTasks = totalTasks / sizeof(struct kinfo_proc);
-		for(size_t i = 0; i < totalTasks; i++)
-			// If found, store it in pid.
-			if(strcmp(info[i].kp_proc.p_comm, binary) == 0) {
-				pid = info[i].kp_proc.p_pid;
-				break;
-			}
+	int numberOfProcesses = proc_listpids(PROC_ALL_PIDS, 0, NULL, 0);
+	pid_t pids[2048];
+	bzero(pids, 2048);
+	proc_listpids(PROC_ALL_PIDS, 0, pids, sizeof(pids));
+
+	for (int i = 0; i < numberOfProcesses; ++i)
+	{
+		if (pids[i] == 0)
+		{
+			continue;
+		}
+		char pathBuffer[PROC_PIDPATHINFO_MAXSIZE];
+		bzero(pathBuffer, PROC_PIDPATHINFO_MAXSIZE);
+		proc_pidpath(pids[i], pathBuffer, sizeof(pathBuffer));
+		if ((strlen(pathBuffer) > 0) && (strcmp(pathBuffer, binary) == 0))
+		{
+			return pids[i];
+		}
 	}
-	
-	NSZoneFree(NULL, info);
-	return pid;
+
+	return 0;
 }
 
 // Watches for termination of the process, doing a watch in its kernel event.
@@ -414,7 +413,7 @@ static inline CFFileDescriptorRef kqueue_watch_pid(pid_t pid, id self) {
 		// Replace the launchPath.
 		launchPath = theLaunchPath;
 		// And set the binary name to the last path component.
-		self.binaryName = [launchPath lastPathComponent];
+		self.binaryName = launchPath;
 		
 		// Start polling to check when the daemon starts.
 		if (launchPath)
