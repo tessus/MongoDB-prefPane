@@ -1,4 +1,4 @@
-###Status [![Build Status](https://travis-ci.org/tessus/MongoDB-prefPane.svg?branch=master)](https://travis-ci.org/tessus/MongoDB-prefPane)
+### Status [![Build Status](https://travis-ci.org/tessus/MongoDB-prefPane.svg?branch=master)](https://travis-ci.org/tessus/MongoDB-prefPane)
 
 MongoDB.prefPane
 ================
