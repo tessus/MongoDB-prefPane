@@ -11,9 +11,9 @@
 #import <Cocoa/Cocoa.h>
 
 typedef void (^DaemonStarted)(NSNumber *);
-typedef void (^DaemonStopped)();
-typedef void (^DaemonIsStarting)();
-typedef void (^DaemonIsStopping)();
+typedef void (^DaemonStopped)(void);
+typedef void (^DaemonIsStarting)(void);
+typedef void (^DaemonIsStopping)(void);
 typedef void (^DaemonFailedToStart)(NSString *);
 typedef void (^DaemonFailedToStop)(NSString *);
 

@@ -50,6 +50,7 @@
 
 
 #import "MBSliderButton.h"
+#import "mongoPref.h"
 
 @implementation MDBMBSliderButton
 
