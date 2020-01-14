@@ -273,6 +273,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* mongo */;
@@ -400,7 +401,7 @@
 				GCC_PREFIX_HEADER = "Classes/MongoDB-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.evermeet.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = MongoDB;
 				SDKROOT = macosx;
@@ -425,7 +426,7 @@
 				GCC_PREFIX_HEADER = "Classes/MongoDB-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.evermeet.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = MongoDB;
 				SDKROOT = macosx;

@@ -79,11 +79,11 @@
 	
 	NSPoint pt;
 	[surround drawAtPoint:NSMakePoint(0,0) fromRect:NSZeroRect
-				operation:NSCompositeSourceOver
+				operation:NSCompositingOperationSourceOver
 				 fraction:1.0];
 	pt = location;
 	pt.x -= 2;
-	[knob drawAtPoint:pt fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+	[knob drawAtPoint:pt fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 }
 
 -(BOOL)isOpaque
@@ -93,7 +93,7 @@
 
 -(NSInteger)state
 {
-	return state ? NSOnState : NSOffState;
+	return state ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 -(void)animateTo:(int)x
@@ -128,7 +128,7 @@
 	if(newstate == [self state])
 		return;
 	
-	int x = newstate == NSOnState ? KNOB_MAX_X : 0;
+	int x = newstate == NSControlStateValueOn ? KNOB_MAX_X : 0;
 	
 	//TODO animate if  we are visible and otherwise don't
 	if(animate)
@@ -136,7 +136,7 @@
 	else
 		[self setNeedsDisplay:YES];
 	
-	state = newstate == NSOnState ? true : false;
+	state = newstate == NSControlStateValueOn ? true : false;
 	location.x = x;
 }
 
@@ -173,11 +173,11 @@
 		while (loop) {
 			// get the next event that is a mouse-up or mouse-dragged event
 			NSEvent *localEvent;
-			localEvent= [[self window] nextEventMatchingMask:NSLeftMouseUpMask | NSLeftMouseDraggedMask];
+			localEvent= [[self window] nextEventMatchingMask:NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged];
 			
 			
 			switch ([localEvent type]) {
-				case NSLeftMouseDragged:
+				case NSEventTypeLeftMouseDragged:
 					
 					// convert the new drag location into the view coords
 					newDragLocation = [self convertPoint:[localEvent locationInWindow]
@@ -195,7 +195,7 @@
 					[self autoscroll:localEvent];
 					
 					break;
-				case NSLeftMouseUp:
+				case NSEventTypeLeftMouseUp:
 					// mouse up has been detected,
 					// we can exit the loop
 					loop = NO;

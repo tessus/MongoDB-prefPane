@@ -76,9 +76,9 @@
 	NSCell *cell = [tableColumn dataCell];
 	if ([[tableColumn identifier] isEqualToString:@"deleteColumn"]) {
 		NSButtonCell *buttonCell = [[NSButtonCell alloc] init];
-		[buttonCell setButtonType:NSMomentaryPushInButton];
+		[buttonCell setButtonType:NSButtonTypeMomentaryPushIn];
 		[buttonCell setBezeled:YES];
-		[buttonCell setBezelStyle:NSSmallSquareBezelStyle];
+		[buttonCell setBezelStyle:NSBezelStyleSmallSquare];
 		[buttonCell setTitle:@"-"];
 		[buttonCell setTarget:self];
 		[buttonCell setAction:@selector(removeArgument:)];

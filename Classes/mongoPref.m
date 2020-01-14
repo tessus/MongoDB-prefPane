@@ -56,24 +56,24 @@
 	
 	daemonController.daemonStartedCallback = ^(NSNumber *pid) {
 		[weakPidtext setStringValue:[[NSString alloc] initWithFormat:@"PID: %@", pid ]];
-		[weakSlider setState:NSOnState animate:YES];
+		[weakSlider setState:NSControlStateValueOn animate:YES];
 	};
 	
 	daemonController.daemonFailedToStartCallback = ^(NSString *reason) {
 		[weakPidtext setStringValue:@""];
-		[weakSlider setState:NSOffState animate:YES];
+		[weakSlider setState:NSControlStateValueOff animate:YES];
 	};
 
 	daemonController.daemonStoppedCallback = ^(void) {
 		[weakPidtext setStringValue:@""];
-		[weakSlider setState:NSOffState animate:YES];
+		[weakSlider setState:NSControlStateValueOff animate:YES];
 	};
 
 	daemonController.daemonFailedToStopCallback = ^(NSString *reason) {
-		[weakSlider setState:NSOnState animate:YES];
+		[weakSlider setState:NSControlStateValueOn animate:YES];
 	};
 
-	[theSlider setState:daemonController.isRunning ? NSOnState : NSOffState];
+	[theSlider setState:daemonController.isRunning ? NSControlStateValueOn : NSControlStateValueOff];
 	[launchPathTextField setStringValue:daemonController.launchPath];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(binaryLocationChanged:) name:NSControlTextDidChangeNotification object:launchPathTextField];
@@ -106,7 +106,7 @@
 	daemonController.launchPath     = [[[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"] stringByExpandingTildeInPath];
 	daemonController.startArguments = arguments;
 
-	if (theSlider.state == NSOffState)
+	if (theSlider.state == NSControlStateValueOff)
 	{
 		[daemonController stop];
 		[pidtext setStringValue:@""];
@@ -127,7 +127,7 @@
 	{
 		[daemonController stop];
 		[pidtext setStringValue:@""];
-		[theSlider setState:NSOffState animate:YES];
+		[theSlider setState:NSControlStateValueOff animate:YES];
 	}
 	if (tag == 1 && !daemonController.isRunning)
 	{
@@ -144,7 +144,7 @@
 	if (![[launchPathTextField stringValue] isEqualToString:@""])
 		[openPanel setDirectoryURL:[NSURL fileURLWithPath:[[launchPathTextField stringValue] stringByDeletingLastPathComponent]]];
 	
-	if ([openPanel runModal] == NSOKButton) {
+	if ([openPanel runModal] == NSModalResponseOK) {
 		[launchPathTextField setStringValue:[openPanel.URL path]];
 		[[MDBPreferences sharedPreferences] setObject:[launchPathTextField stringValue] forUserDefaultsKey:@"launchPath"];
 		daemonController.launchPath = [[MDBPreferences sharedPreferences] objectForUserDefaultsKey:@"launchPath"];
