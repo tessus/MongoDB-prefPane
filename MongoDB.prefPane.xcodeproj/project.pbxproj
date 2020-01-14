@@ -89,10 +89,10 @@
 		2CD9EB3C1384C231001BE97E /* ArgumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgumentsViewController.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* MongoDB.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MongoDB.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B8FDAC23CE58DF000EB7CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/mongoPref.xib; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* mongoPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoPref.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* mongoPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mongoPref.m; sourceTree = "<group>"; };
-		F506C043013D9D8C01CA16C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/mongoPref.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,11 +270,11 @@
 			};
 			buildConfigurationList = 1DBD214C08BA80EA00186707 /* Build configuration list for PBXProject "MongoDB.prefPane" */;
 			compatibilityVersion = "Xcode 10.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* mongo */;
 			projectDirPath = "";
@@ -357,7 +357,7 @@
 		F506C042013D9D8C01CA16C8 /* mongoPref.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F506C043013D9D8C01CA16C8 /* English */,
+				B7B8FDAC23CE58DF000EB7CE /* Base */,
 			);
 			name = mongoPref.xib;
 			path = ..;
